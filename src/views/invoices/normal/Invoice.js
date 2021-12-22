@@ -1,149 +1,58 @@
+import { CCard, CCardBody, CForm, CRow, CCardHeader, CFormGroup, CLabel, CInput, CCol, CButton, CInputRadio } from '@coreui/react'
 import React from 'react'
-import {
-  CButton,
-  CCard,
-  CCardBody,
-  CCardFooter,
-  CCardHeader,
-  CCol,
-  CCollapse,
-  CDropdownItem,
-  CDropdownMenu,
-  CDropdownToggle,
-  CFade,
-  CForm,
-  CFormGroup,
-  CFormText,
-  CValidFeedback,
-  CInvalidFeedback,
-  CTextarea,
-  CInput,
-  CInputFile,
-  CInputCheckbox,
-  CInputRadio,
-  CInputGroup,
-  CInputGroupAppend,
-  CInputGroupPrepend,
-  CDropdown,
-  CInputGroupText,
-  CLabel,
-  CSelect,
-  CRow,
-  CSwitch
-} from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-import { DocsLink } from 'src/reusable'
+import TableForm from '../table/TableForm'
 
-const BasicForms = () => {
-  const [collapsed, setCollapsed] = React.useState(true)
-  const [showElements, setShowElements] = React.useState(true)
+const Invoice = () =>{
+return(
+<>
+ <CCard className="mt-4">
+            <CCardHeader>
+              <h4>Customer Invoice Form</h4>
+            </CCardHeader>
+            <CCardBody>
+              <CFormGroup>
+                <CLabel htmlFor="InvoiceNumber">Invoice Number</CLabel>
+                <CInput id="InvoiceNumber" placeholder="Enter your Invoice Number" />
+              </CFormGroup>
+              <CFormGroup>
+                <CLabel >Customer Name</CLabel>
+                <CInput id="CustomerName" placeholder="Yasas Pussewela" />
+              </CFormGroup>
+              <CFormGroup>
+                    <CLabel htmlFor="date-input">Invoice Date</CLabel>
+                    <CInput type="date" id="date-input" name="date-input" placeholder="date" />
+                </CFormGroup>
+                <CFormGroup row>
+                  <CCol md="3">
+                    <CLabel>Payment Type</CLabel>
+                  </CCol>
+                  <CCol md="9">
+                    <CFormGroup variant="custom-radio" inline>
+                      <CInputRadio custom id="inline-radio1" name="inline-radios" value="option1" />
+                      <CLabel variant="custom-checkbox" htmlFor="inline-radio1">Cash</CLabel>
+                    </CFormGroup>
+                    <CFormGroup variant="custom-radio" inline>
+                      <CInputRadio custom id="inline-radio2" name="inline-radios" value="option2" />
+                      <CLabel variant="custom-checkbox" htmlFor="inline-radio2">Credit</CLabel>
+                    </CFormGroup>
 
-  return (
-    <>
-   
-      <CRow>
-        <CCol xs="12">
-          <CFade timeout={300} in={showElements} unmountOnExit={true}>
-            <CCard>
-              <CCardHeader>
-                Form Elements
-                <div className="card-header-actions">
-                  <CButton color="link" className="card-header-action btn-setting">
-                    <CIcon name="cil-settings" />
-                  </CButton>
-                  <CButton 
-                    color="link" 
-                    className="card-header-action btn-minimize" 
-                    onClick={() => setCollapsed(!collapsed)}
-                  >
-                    <CIcon name={ collapsed ? "cil-arrow-top" : "cil-arrow-bottom"} />
-                  </CButton>
-                  <CButton 
-                    color="link" 
-                    className="card-header-action btn-close" 
-                    onClick={() => setShowElements(false)}
-                  >
-                    <CIcon name="cil-x" />
-                  </CButton>
-                </div>
-              </CCardHeader>
-              <CCollapse show={collapsed} timeout={1000}>
-                <CCardBody>
-                  <CForm className="form-horizontal">
-                    <CFormGroup>
-                      <CLabel htmlFor="prependedInput">Prepended text</CLabel>
-                      <div className="controls">
-                        <CInputGroup className="input-prepend">
-                          <CInputGroupPrepend>
-                            <CInputGroupText>@</CInputGroupText>
-                          </CInputGroupPrepend>
-                          <CInput id="prependedInput" size="16" type="text" />
-                        </CInputGroup>
-                        <p className="help-block">Here's some help text</p>
-                      </div>
-                    </CFormGroup>
-                    <CFormGroup>
-                      <CLabel htmlFor="appendedInput">Appended text</CLabel>
-                      <div className="controls">
-                        <CInputGroup>
-                          <CInput id="appendedInput" size="16" type="text" />
-                          <CInputGroupAppend>
-                            <CInputGroupText>.00</CInputGroupText>
-                          </CInputGroupAppend>
-                        </CInputGroup>
-                        <span className="help-block">Here's more help text</span>
-                      </div>
-                    </CFormGroup>
-                    <CFormGroup>
-                      <CLabel htmlFor="appendedPrependedInput">Append and prepend</CLabel>
-                      <div className="controls">
-                        <CInputGroup className="input-prepend">
-                          <CInputGroupPrepend>
-                            <CInputGroupText>$</CInputGroupText>
-                          </CInputGroupPrepend>
-                          <CInput id="appendedPrependedInput" size="16" type="text" />
-                          <CInputGroupAppend>
-                            <CInputGroupText>.00</CInputGroupText>
-                          </CInputGroupAppend>
-                        </CInputGroup>
-                      </div>
-                    </CFormGroup>
-                    <CFormGroup>
-                      <CLabel htmlFor="appendedInputButton">Append with button</CLabel>
-                      <div className="controls">
-                        <CInputGroup>
-                          <CInput id="appendedInputButton" size="16" type="text" />
-                          <CInputGroupAppend>
-                            <CButton color="secondary">Go!</CButton>
-                          </CInputGroupAppend>
-                        </CInputGroup>
-                      </div>
-                    </CFormGroup>
-                    <CFormGroup>
-                      <CLabel htmlFor="appendedInputButtons">Two-button append</CLabel>
-                      <div className="controls">
-                        <CInputGroup>
-                          <CInput id="appendedInputButtons" size="16" type="text" />
-                          <CInputGroupAppend>
-                            <CButton color="secondary">Search</CButton>
-                            <CButton color="secondary">Options</CButton>
-                          </CInputGroupAppend>
-                        </CInputGroup>
-                      </div>
-                    </CFormGroup>
-                    <div className="form-actions">
-                      <CButton type="submit" color="primary">Save changes</CButton>
-                      <CButton color="secondary">Cancel</CButton>
-                    </div>
-                  </CForm>
-                </CCardBody>
-              </CCollapse>
-            </CCard>
-          </CFade>
-        </CCol>
-      </CRow>
-    </>
-  )
+                  </CCol>
+                </CFormGroup>
+              <TableForm/>
+              <CFormGroup>
+              <CButton type="submit" size="sm" color="primary" className="m-1"> Print Invoice</CButton>
+              <CButton type="reset" size="sm" color="danger" > Download Invoice</CButton>
+              </CFormGroup>
+             
+            </CCardBody>
+          </CCard>
+
+
+</>
+
+)
+
 }
 
-export default BasicForms
+export default Invoice

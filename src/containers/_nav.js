@@ -10,24 +10,12 @@ const _nav =  [
     
   },
   {
-  _tag: 'CSidebarNavDropdown',
+  _tag: 'CSidebarNavItem',
   name: 'Invoices',
-  
+  to: '/invoices'
  
-  _children: [
-   
-    {
-      _tag: 'CSidebarNavItem',
-      name: 'Normal',
-      to: '/invoices/normal/Invoice',
-    },
-    {
-      _tag: 'CSidebarNavItem',
-      name: 'RFEJ',
-      to: '/invoices/rfej/InvoiceRfej',
-    }
-    
-  ],
+  
+  
 },
   {
     _tag: 'CSidebarNavItem',

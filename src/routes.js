@@ -39,6 +39,7 @@ const Widgets = React.lazy(() => import('./views/widgets/Widgets'));
 const Users = React.lazy(() => import('./views/users/Users'));
 const User = React.lazy(() => import('./views/users/User'));
 
+const Invoices = React.lazy(() => import('./views/invoices/Invoices'));
 const Invoice = React.lazy(() => import('./views/invoices/normal/Invoice'));
 const Reports = React.lazy(() => import('./views/reports/Reports'));
 const Salaries = React.lazy(() => import('./views/salaries/Salaries'));
@@ -88,11 +89,12 @@ const routes = [
   { path: '/users', exact: true,  name: 'Users', component: Users },
   { path: '/users/:id', exact: true, name: 'User Details', component: User },
 
-  { path: '/invoices/normal', name: 'Invoices', component: Invoice },
+  { path: '/invoices/normal', name: 'Invoice', component: Invoice },
   { path: '/reports', name: 'Reports', component: Reports },
   { path: '/expenses', name: 'Expenses', component: Expenses },
   { path: '/salaries', name: 'Salaries', component: Salaries },
-  { path: '/invoices/rfej', name: 'InvoiceRfej', component: InvoiceRfej }
+  { path: '/invoices/rfej', name: 'InvoiceRfej', component: InvoiceRfej },
+  { path: '/invoices', name: 'Invoices', component: Invoices }
 ];
 
 export default routes;
