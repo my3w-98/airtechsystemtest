@@ -30,11 +30,6 @@ return(
                 <CInput id="CustomerName" placeholder="Yasas Pussewela" />
               </CFormGroup>
 
-              <CFormGroup>
-                <CLabel ><p><strong>Customer Name</strong></p></CLabel>
-                <CInput id="CustomerName" placeholder="Yasas Pussewela" />
-              </CFormGroup>
-
               <CFormGroup row>
                 <CCol xs="8" md="4">
                     <CLabel htmlFor="date-input"><p><strong>Invoice Date</strong></p></CLabel>
