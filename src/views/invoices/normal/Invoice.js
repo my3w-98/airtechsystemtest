@@ -1,8 +1,16 @@
 import { CCard, CCardBody, CForm, CRow, CCardHeader, CFormGroup, CLabel, CInput, CCol, CButton, CInputRadio, CTextarea } from '@coreui/react'
 import React from 'react'
+import { useState } from 'react'
+import TableForm from '../TableForm'
 
 
 const Invoice = () =>{
+
+  const [description,setDescription] = useState("")
+  const [price,setPrice] = useState("")
+  const [amount,setAmount] = useState("")
+  const [quantity,setQuantity] = useState("")
+
 return(
 <>
  <CCard className="mt-4">
@@ -19,41 +27,24 @@ return(
                 <CInput id="CustomerName" placeholder="Yasas Pussewela" />
               </CFormGroup>
 
-              <CFormGroup row>
+              <CFormGroup row >
                 <CCol xs="8" md="4">
                     <CLabel htmlFor="date-input"><p><strong>Invoice Date</strong></p></CLabel>
-                    <CInput type="date" id="date-input" name="date-input" placeholder="date" />
+                    <CInput  type="date" id="date-input" name="date-input" placeholder="date" />
                 </CCol>
                 </CFormGroup>
               
-                    
-                    <CFormGroup className=" mt-5" row>
-                   
-                    
-                      
-                    <CCol xs="5" md="4">
-                    <CLabel><p><strong>Price</strong></p></CLabel>
-                    <CInput type='text' id='price' name='price' placeholder='Price'required></CInput>
-                    </CCol>
-                    <CCol xs="5" md="4">
-                    <CLabel><p><strong>Quantity</strong></p></CLabel>
-                    <CInput type='text' id='quantity' name='quantity' placeholder='Quantity'required></CInput>
-                    </CCol>
-                    <CCol xs="5" md="4">
-                    <CLabel><p><strong>Amount</strong></p></CLabel>
-                    <CInput type='text' id='item' name='itemOrService' placeholder='Item or Service'required></CInput>
-                    </CCol>
-                  
-                    </CFormGroup>
-                    
-                   
-                    <CLabel><p><strong>Item/Service</strong></p></CLabel>
-                    <CTextarea
-                      name="textarea-input" 
-                      id="textarea-input" 
-                      rows="4"
-                      placeholder="Content..." 
-                    />                    
+                    <TableForm 
+                    description = {description}
+                    setDescription= {setDescription}
+                    price = {price}
+                    setPrice= {setPrice}
+                    quantity = {quantity}
+                    setQuantity= {setQuantity}
+                    amount = {amount}
+                    setAmount= {setAmount}
+                    />
+                                    
                      <CFormGroup row className="mt-5">
                   <CCol md="9">
                     <CLabel><p><strong>Payment Type</strong></p></CLabel>
