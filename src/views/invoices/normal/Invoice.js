@@ -16,7 +16,7 @@ return(
               </CFormGroup>
               <CFormGroup>
                 <CLabel ><p><strong>Customer Name</strong></p></CLabel>
-                <CInput id="CustomerName" placeholder="Yasas Pussewela" />
+                <CInput id="CustomerName" placeholder="Enter Customer Name" />
               </CFormGroup>
 
               <CFormGroup row>

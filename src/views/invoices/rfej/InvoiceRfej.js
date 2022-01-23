@@ -8,7 +8,7 @@ return(
 <>
  <CCard className="mt-4">
             <CCardHeader>
-            <h3>RFEJ Customer Invoice Form</h3>
+            <h3>REPJ Customer Invoice Form</h3>
             </CCardHeader>
             <CCardBody>
            
@@ -17,18 +17,13 @@ return(
             <CInputGroup className="mb-3 mt-1">
                       <CInputGroupPrepend>
                         <CInputGroupText>
-                          RFEJ_
+                          REPJ_
                         </CInputGroupText>
                       </CInputGroupPrepend>
                       <CInput type='number' id="input3-group1" name="input3-group1" placeholder="Enter your Invoice Number" />
             </CInputGroup>
       
 
-         
-              <CFormGroup>
-                <CLabel ><p><strong>Customer Name</strong></p></CLabel>
-                <CInput id="CustomerName" placeholder="Yasas Pussewela" />
-              </CFormGroup>
 
               <CFormGroup row>
                 <CCol xs="8" md="4">
