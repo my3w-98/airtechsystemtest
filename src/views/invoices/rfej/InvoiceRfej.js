@@ -1,65 +1,70 @@
-import { CCard, CCardBody, CForm, CRow, CCardHeader, CFormGroup, CLabel, CInput, CCol, CInputGroupPrepend,
-  CInputGroupText, CInputGroupAppend, CInputGroup, CButton, CTextarea, CInputRadio} from '@coreui/react'
+import { CCard, CCardBody, CForm, CRow, CCardHeader, CFormGroup, CLabel, CInput, CCol, CButton, CInputRadio, CTextarea, CInputGroup, CInputGroupPrepend,CInputGroupText
+ } from '@coreui/react'
 import React from 'react'
-import CIcon from '@coreui/icons-react'
+import { useState, useEffect } from 'react'
+import TableForm from '../TableForm'
+import  Axios  from 'axios'
 
 const InvoiceRfej = () =>{
+
+  const [description,setDescription] = useState("")
+  const [price,setPrice] = useState("")
+  const [amount,setAmount] = useState("")
+  const [quantity,setQuantity] = useState("")
+  const [invoiceNumber,setInvoiceNumber] = useState("")
+  const [date,setDate] = useState("")
+  const [list,setList] = useState([])
+  const [total,setTotal] = useState(0)
+ 
+  const submitInvoice = () =>{
+    Axios.post('http://localhost:3001/api/insertretj', {invoiceNumber:invoiceNumber,
+  date:date, total:total
+    }).then(()=>{
+      alert('successful insert')
+    })
+  };
+
+
 return(
 <>
- <CCard className="mt-4">
+<CCard className="mt-4">
             <CCardHeader>
-            <h3>REPJ Customer Invoice Form</h3>
+              <h3>REPJ Customer Invoice Form</h3>
             </CCardHeader>
             <CCardBody>
-           
-              <CLabel><p><strong>Invoice Number</strong></p></CLabel>
+              <CFormGroup>
+                <CLabel htmlFor="InvoiceNumber"><p><strong>Invoice Number</strong></p></CLabel>
+                <CInput id="invoiceNumber" placeholder="Enter your Invoice Number" onChange={(e)=>{
+                  setInvoiceNumber(e.target.value)
+                }}/>
+              </CFormGroup>
               
-            <CInputGroup className="mb-3 mt-1">
-                      <CInputGroupPrepend>
-                        <CInputGroupText>
-                          REPJ_
-                        </CInputGroupText>
-                      </CInputGroupPrepend>
-                      <CInput type='number' id="input3-group1" name="input3-group1" placeholder="Enter your Invoice Number" />
-            </CInputGroup>
-      
 
 
-              <CFormGroup row>
+              <CFormGroup row >
                 <CCol xs="8" md="4">
                     <CLabel htmlFor="date-input"><p><strong>Invoice Date</strong></p></CLabel>
-                    <CInput type="date" id="date-input" name="date-input" placeholder="date" />
+                    <CInput className="mb-40"type="date" id="dateInput" name="date-input" placeholder="date" onChange={(e)=>{
+                  setDate(e.target.value)
+                }}/>
                 </CCol>
                 </CFormGroup>
               
-                    
-                    <CFormGroup className=" mt-5" row>
-                   
-                    
-                      
-                    <CCol xs="5" md="4">
-                    <CLabel><p><strong>Price</strong></p></CLabel>
-                    <CInput type='text' id='price' name='price' placeholder='Price'required></CInput>
-                    </CCol>
-                    <CCol xs="5" md="4">
-                    <CLabel><p><strong>Quantity</strong></p></CLabel>
-                    <CInput type='text' id='quantity' name='quantity' placeholder='Quantity'required></CInput>
-                    </CCol>
-                    <CCol xs="5" md="4">
-                    <CLabel><p><strong>Amount</strong></p></CLabel>
-                    <CInput type='text' id='item' name='itemOrService' placeholder='Item or Service'required></CInput>
-                    </CCol>
-                  
-                    </CFormGroup>
-                    
-                   
-                    <CLabel><p><strong>Item/Service</strong></p></CLabel>
-                    <CTextarea
-                      name="textarea-input" 
-                      id="textarea-input" 
-                      rows="4"
-                      placeholder="Content..." 
-                    />                    
+                <TableForm 
+                    description = {description}
+                    setDescription= {setDescription}
+                    price = {price}
+                    setPrice= {setPrice}
+                    quantity = {quantity}
+                    setQuantity= {setQuantity}
+                    amount = {amount}
+                    setAmount= {setAmount}
+                    list = {list}
+                    setList = {setList}
+                    total = {total}
+                    setTotal = {setTotal}
+                    />
+                                    
                      <CFormGroup row className="mt-5">
                   <CCol md="9">
                     <CLabel><p><strong>Payment Type</strong></p></CLabel>
@@ -79,7 +84,7 @@ return(
                   
                 
                           <CFormGroup className="mt-4">
-              <CButton type="submit" size="sm" color="success"> Submit</CButton>
+              <CButton type="submit" size="sm" color="success" onClick={submitInvoice}> Submit</CButton>
               <CButton type="submit" size="sm" color="primary" className="m-1"> Print Invoice</CButton>
               <CButton type="reset" size="sm" color="danger" > Download Invoice</CButton>
               </CFormGroup>

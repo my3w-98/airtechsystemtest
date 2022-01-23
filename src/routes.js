@@ -45,7 +45,7 @@ const Reports = React.lazy(() => import('./views/reports/Reports'));
 const Salaries = React.lazy(() => import('./views/salaries/Salaries'));
 const Expenses = React.lazy(() => import('./views/expenses/Expenses'));
 const InvoiceRfej = React.lazy(() => import('./views/invoices/rfej/InvoiceRfej'));
-
+const TableForm = React.lazy(()=> import('./views/invoices/TableForm'))
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -94,7 +94,8 @@ const routes = [
   { path: '/expenses', name: 'Expenses', component: Expenses },
   { path: '/salaries', name: 'Salaries', component: Salaries },
   { path: '/invoices/rfej', name: 'InvoiceRfej', component: InvoiceRfej },
-  { path: '/invoices', name: 'Invoices', component: Invoices }
+  { path: '/invoices', name: 'Invoices', component: Invoices },
+  { path: '/invoices', name: 'TableForm', component: TableForm}
 ];
 
 export default routes;

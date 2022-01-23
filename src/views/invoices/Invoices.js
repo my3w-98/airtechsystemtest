@@ -9,7 +9,7 @@ import InvoiceRfej from './rfej/InvoiceRfej'
 function Invoices () {
 
     const [active, setActive] = useState("Normal")
-    
+   
     
     return (<>
         <div>
@@ -23,6 +23,7 @@ function Invoices () {
                         <CButton color="success" className="mr-2"onClick={()=>setActive("Normal")}>Normal</CButton>
                         <CButton color="info" className="mr-2"   onClick={()=>setActive("Rfej")}>REPJ</CButton>
                         </div>
+
                     <div>
                         {active === "Normal" && <Invoice/> } 
                         {active === "Rfej" &&  <InvoiceRfej/> }
