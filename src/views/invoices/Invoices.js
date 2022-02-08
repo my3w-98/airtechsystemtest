@@ -2,6 +2,7 @@ import { CButton, CCard, CCardBody, CCardHeader } from '@coreui/react'
 import React,{useState} from 'react'
 
 import Invoice from './normal/Invoice'
+
 import InvoiceRfej from './rfej/InvoiceRfej'
 
 
@@ -26,6 +27,7 @@ function Invoices () {
                     <div>
                         {active === "Normal" && <Invoice/> } 
                         {active === "Rfej" &&  <InvoiceRfej/> }
+
                     </div>
                     
                     
