@@ -1,8 +1,14 @@
-import { CCard, CCardBody, CForm, CRow, CCardHeader, CFormGroup, CLabel, CInput, CCol, CButton, CInputRadio, CTextarea } from '@coreui/react'
+import { CCard, CCardBody, CForm, CRow, CCardHeader,CModal,
+  CModalBody,
+  CModalFooter,
+  CModalHeader,
+  CModalTitle, CFormGroup, CLabel, CInput, CCol, CButton, CInputRadio, CTextarea } from '@coreui/react'
 import React from 'react'
 import { useState, useEffect } from 'react'
 import TableForm from '../TableForm'
 import  Axios  from 'axios'
+import { useHistory } from "react-router-dom";
+
 
 const Invoice = () =>{
 
@@ -15,7 +21,13 @@ const Invoice = () =>{
   const [date,setDate] = useState("")
   const [list,setList] = useState([])
   const [total,setTotal] = useState(0)
- 
+
+  const history = useHistory();
+  
+  const routeChange = () =>{ 
+    let path = `/previews/normal`; 
+    history.push(path);
+  }
  
 
   const submitInvoice = () =>{
@@ -86,13 +98,10 @@ return(
                     </CFormGroup>
                     </CCol>
                   </CFormGroup>
-                  
-                  
-                
+             
                           <CFormGroup className="mt-4">
-              <CButton type="submit" size="sm" color="success" onClick={submitInvoice}> Submit</CButton>
-              <CButton type="submit" size="sm" color="primary" className="m-1"> Print Invoice</CButton>
-              <CButton type="reset" size="sm" color="danger" > Download Invoice</CButton>
+              <CButton type="submit" size="sm" color="success" onClick={submitInvoice}> Save Invoice</CButton>
+              <CButton type="submit" size="sm" color="primary" className="m-1" onClick={routeChange}> Preview Invoice</CButton>
               </CFormGroup>
              
             </CCardBody>
