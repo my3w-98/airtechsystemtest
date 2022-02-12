@@ -53,9 +53,10 @@ return(
               </CFormGroup>
               <CFormGroup>
                 <CLabel ><p><strong>Customer Name</strong></p></CLabel>
-                <CInput id="customerName" placeholder="Yasas Pussewela" onChange={(e)=>{
+                <CInput id="customerName" placeholder="Enter Customer Name" onChange={(e)=>{
                   setCustomerName(e.target.value)
                 }}/>
+
               </CFormGroup>
 
               <CFormGroup row >

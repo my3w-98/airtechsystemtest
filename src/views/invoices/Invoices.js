@@ -22,8 +22,9 @@ function Invoices () {
                         
                         <div>
                         <CButton color="success" className="mr-2"onClick={()=>setActive("Normal")}>Normal</CButton>
-                        <CButton color="info" className="mr-2"   onClick={()=>setActive("Rfej")}>RETJ</CButton>
+                        <CButton color="info" className="mr-2"   onClick={()=>setActive("Rfej")}>REPJ</CButton>
                         </div>
+
                     <div>
                         {active === "Normal" && <Invoice/> } 
                         {active === "Rfej" &&  <InvoiceRfej/> }
